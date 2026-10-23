@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The personal profile of Raduan Islam, a CSE student aspiring to become a skilled programmer and successful businessman.">
+  <meta name="author" content="Raduan Islam">
+  <meta name="robots" content="index, follow">
+  <title>Raduan Islam | Personal Profile</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --ink: #172033;
+      --muted: #647087;
+      --accent: #3b5ccc;
+      --accent-dark: #2845a7;
+      --line: #e4e8f1;
+      --soft: #edf1ff;
+      --shadow: 0 18px 55px rgba(27, 43, 87, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 90% 4%, rgba(88, 118, 238, .13), transparent 26rem),
+        var(--bg);
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(100% - 32px, 1040px); margin: 0 auto; }
+    header { padding: 22px 0; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.05rem; text-decoration: none; }
+    .nav-right { display: flex; align-items: center; gap: 18px; }
+    .nav-link { text-decoration: none; color: var(--muted); font-size: .94rem; }
+    .lang-btn {
+      border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+      border-radius: 999px; padding: 9px 14px; font-weight: 700; cursor: pointer;
+    }
+    .hero {
+      display: grid; grid-template-columns: 1.4fr .8fr; align-items: center; gap: 36px;
+      padding: 62px 0 72px;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; border-radius: 999px;
+      padding: 7px 12px; background: var(--soft); color: var(--accent-dark);
+      font-size: .82rem; font-weight: 750; letter-spacing: .02em;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+    h1 { font-size: clamp(2.8rem, 7vw, 5.3rem); line-height: 1.02; letter-spacing: -.065em; margin: 20px 0 18px; }
+    .lead { font-size: clamp(1.05rem, 2vw, 1.22rem); color: var(--muted); max-width: 600px; margin: 0 0 26px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border-radius: 12px; padding: 12px 17px; font-weight: 750; text-decoration: none;
+      border: 1px solid var(--line); background: var(--surface);
+    }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: white; }
+    .btn.primary:hover { background: var(--accent-dark); }
+    .profile-card {
+      background: var(--surface); border: 1px solid rgba(228,232,241,.9); border-radius: 28px;
+      padding: 26px; box-shadow: var(--shadow); text-align: center; position: relative; overflow: hidden;
+    }
+    .profile-card::before { content: ""; position: absolute; width: 220px; height: 220px; border-radius: 50%; background: var(--soft); top: -100px; right: -80px; }
+    .avatar {
+      width: 142px; height: 142px; display: grid; place-items: center; margin: 8px auto 18px;
+      border-radius: 50%; background: linear-gradient(135deg, #344fbd, #8ea1ff);
+      color: white; font-size: 2.7rem; font-weight: 850; letter-spacing: -.06em;
+      border: 7px solid white; box-shadow: 0 10px 30px rgba(59,92,204,.22); position: relative;
+    }
+    .profile-card h2 { font-size: 1.3rem; margin: 0; letter-spacing: -.03em; }
+    .role { color: var(--muted); margin: 5px 0 18px; font-size: .95rem; }
+    .pill-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .pill { background: #f4f6fb; border: 1px solid var(--line); color: #49556d; border-radius: 999px; padding: 6px 10px; font-size: .78rem; font-weight: 700; }
+    section { padding: 22px 0 42px; }
+    .section-head { margin-bottom: 20px; }
+    .section-kicker { color: var(--accent); text-transform: uppercase; letter-spacing: .13em; font-size: .76rem; font-weight: 800; }
+    h2.section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); letter-spacing: -.05em; line-height: 1.15; margin: 7px 0 0; }
+    .about-card, .education-card, .goal-card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 25px; }
+    .about-card p { color: var(--muted); margin: 0; font-size: 1.04rem; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .education-card { display: flex; gap: 15px; align-items: flex-start; }
+    .iconbox { flex: 0 0 44px; height: 44px; display: grid; place-items: center; background: var(--soft); border-radius: 13px; color: var(--accent); font-size: 1.25rem; }
+    .education-card h3, .goal-card h3 { margin: 0 0 5px; font-size: 1.02rem; }
+    .education-card p, .goal-card p { margin: 0; color: var(--muted); font-size: .93rem; }
+    .goals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .goal-number { color: var(--accent); font-size: .82rem; font-weight: 850; margin-bottom: 10px; }
+    footer { margin-top: 26px; padding: 25px 0 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    [lang="bn"] { font-family: "Noto Sans Bengali", "Nirmala UI", Vrinda, sans-serif; }
+    .hidden { display: none !important; }
+
+    .social-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .social-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      padding: 11px 15px; border: 1px solid var(--line); border-radius: 12px;
+      background: var(--surface); text-decoration: none; font-weight: 750;
+      font-size: .93rem; transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .social-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(27,43,87,.09); }
+    .social-icon { width: 20px; height: 20px; display: inline-grid; place-items: center; font-weight: 850; }
+    .social-section { padding-top: 5px; }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; padding: 42px 0 50px; gap: 28px; }
+      .profile-card { max-width: 420px; width: 100%; margin: 0 auto; }
+      .grid, .goals { grid-template-columns: 1fr; }
+      .nav-link { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top">RI<span style="color:var(--accent)">.</span></a>
+      <div class="nav-right">
+        <a class="nav-link" href="#about"><span class="en">About</span><span class="bn hidden" lang="bn">আমার সম্পর্কে</span></a>
+        <a class="nav-link" href="#education"><span class="en">Education</span><span class="bn hidden" lang="bn">শিক্ষা</span></a>
+        <button class="lang-btn" id="langToggle" type="button" aria-label="Switch language">বাংলা</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <div class="hero">
+      <div>
+        <span class="eyebrow"><span class="dot"></span><span class="en">STUDENT · FUTURE-FOCUSED</span><span class="bn hidden" lang="bn">শিক্ষার্থী · ভবিষ্যৎমুখী</span></span>
+        <h1 class="en">Hello, I'm<br>Raduan Islam.</h1>
+        <h1 class="bn hidden" lang="bn">হ্যালো, আমি<br>রেদুয়ান ইসলাম।</h1>
+        <p class="lead en">A CSE student aspiring to become a skilled programmer and a successful businessman.</p>
+        <p class="lead bn hidden" lang="bn">আমি কম্পিউটার সায়েন্স অ্যান্ড ইঞ্জিনিয়ারিংয়ের একজন শিক্ষার্থী। আমার লক্ষ্য একজন দক্ষ প্রোগ্রামার ও সফল ব্যবসায়ী হওয়া।</p>
+        <div class="actions">
+          <a class="btn primary" href="#about"><span class="en">About me</span><span class="bn hidden" lang="bn">আমার সম্পর্কে</span> <span aria-hidden="true">↘</span></a>
+          <a class="btn" href="#education"><span class="en">My education</span><span class="bn hidden" lang="bn">আমার শিক্ষা</span></a>
+        </div>
+        <p class="social-heading" style="margin:18px 0 0;color:var(--muted);font-size:.9rem">
+          <span class="en">Find me online</span><span class="bn hidden" lang="bn">সোশ্যাল মিডিয়ায় আমাকে খুঁজুন</span>
+        </p>
+        <div class="social-links" aria-label="Social profiles">
+          <a class="social-btn" href="https://www.facebook.com/share/19brPWHbCD/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
+            <span class="social-icon" aria-hidden="true">f</span> Facebook
+          </a>
+          <a class="social-btn" href="https://www.instagram.com/raduan_islam.18?rpxt=a2VpZG8zemR0N29k&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+            <span class="social-icon" aria-hidden="true">◎</span> Instagram
+          </a>
+          <a class="social-btn" href="https://pin.it/3INfSLEQ2" target="_blank" rel="noopener noreferrer" aria-label="Pinterest profile">
+            <span class="social-icon" aria-hidden="true">P</span> Pinterest
+          </a>
+          <a class="social-btn" href="https://www.pexels.com/@Raduan-Islam-228506269" target="_blank" rel="noopener noreferrer" aria-label="Pexels profile">
+            <span class="social-icon" aria-hidden="true">◈</span> Pexels
+          </a>
+        </div>
+      </div>
+      <aside class="profile-card" aria-label="Profile summary">
+        <div class="avatar" aria-label="Initials RI">RI</div>
+        <h2>Raduan Islam</h2>
+        <p class="role en">Student · Aspiring Programmer &amp; Businessman</p>
+        <p class="role bn hidden" lang="bn">শিক্ষার্থী · ভবিষ্যৎ প্রোগ্রামার ও ব্যবসায়ী</p>
+        <div class="pill-row">
+          <span class="pill">CSE</span>
+          <span class="pill"><span class="en">Programming</span><span class="bn hidden" lang="bn">প্রোগ্রামিং</span></span>
+          <span class="pill"><span class="en">Business</span><span class="bn hidden" lang="bn">ব্যবসা</span></span>
+        </div>
+      </aside>
+    </div>
+
+    <section id="about">
+      <div class="section-head">
+        <div class="section-kicker en">A little introduction</div>
+        <div class="section-kicker bn hidden" lang="bn">সংক্ষিপ্ত পরিচিতি</div>
+        <h2 class="section-title en">About me</h2>
+        <h2 class="section-title bn hidden" lang="bn">আমার সম্পর্কে</h2>
+      </div>
+      <div class="about-card">
+        <p class="en">I am Raduan Islam, a student pursuing a Bachelor of Science in Computer Science and Engineering (CSE) at the University of Brahmanbaria. I aspire to become a skilled programmer and a successful businessman. I aim to keep learning, improve my programming skills, and build a strong foundation for my future in technology and business.</p>
+        <p class="bn hidden" lang="bn">আমি রেদুয়ান ইসলাম। আমি ইউনিভার্সিটি অব ব্রাহ্মণবাড়িয়ায় কম্পিউটার সায়েন্স অ্যান্ড ইঞ্জিনিয়ারিং (CSE)-এ স্নাতক ডিগ্রির জন্য পড়াশোনা করছি। আমার লক্ষ্য একজন দক্ষ প্রোগ্রামার ও সফল ব্যবসায়ী হওয়া। আমি নিয়মিত শিখতে, প্রোগ্রামিং দক্ষতা বাড়াতে এবং প্রযুক্তি ও ব্যবসায়ের ক্ষেত্রে ভবিষ্যতের জন্য শক্ত ভিত্তি গড়তে চাই।</p>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-head">
+        <div class="section-kicker en">Academic background</div>
+        <div class="section-kicker bn hidden" lang="bn">শিক্ষাগত পরিচিতি</div>
+        <h2 class="section-title en">Education</h2>
+        <h2 class="section-title bn hidden" lang="bn">শিক্ষা</h2>
+      </div>
+      <div class="grid">
+        <div class="education-card">
+          <div class="iconbox" aria-hidden="true">⌂</div>
+          <div>
+            <h3 class="en">University of Brahmanbaria</h3>
+            <h3 class="bn hidden" lang="bn">ইউনিভার্সিটি অব ব্রাহ্মণবাড়িয়া</h3>
+            <p class="en">Bachelor of Science in Computer Science and Engineering (CSE)</p>
+            <p class="bn hidden" lang="bn">বি.এসসি. ইন কম্পিউটার সায়েন্স অ্যান্ড ইঞ্জিনিয়ারিং (CSE)</p>
+          </div>
+        </div>
+        <div class="education-card">
+          <div class="iconbox" aria-hidden="true">⌘</div>
+          <div>
+            <h3 class="en">Area of Interest</h3>
+            <h3 class="bn hidden" lang="bn">আগ্রহের ক্ষেত্র</h3>
+            <p class="en">Programming and technology</p>
+            <p class="bn hidden" lang="bn">প্রোগ্রামিং ও প্রযুক্তি</p>
+          </div>
+        </div>
+        <div class="education-card">
+          <div class="iconbox" aria-hidden="true">↗</div>
+          <div>
+            <h3 class="en">Career Ambition</h3>
+            <h3 class="bn hidden" lang="bn">ভবিষ্যৎ লক্ষ্য</h3>
+            <p class="en">Programming and business</p>
+            <p class="bn hidden" lang="bn">প্রোগ্রামিং ও ব্যবসা</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="goals">
+      <div class="section-head">
+        <div class="section-kicker en">Looking ahead</div>
+        <div class="section-kicker bn hidden" lang="bn">ভবিষ্যতের পরিকল্পনা</div>
+        <h2 class="section-title en">My goals</h2>
+        <h2 class="section-title bn hidden" lang="bn">আমার লক্ষ্য</h2>
+      </div>
+      <div class="goals">
+        <div class="goal-card"><div class="goal-number">01</div><h3 class="en">Become a skilled programmer</h3><h3 class="bn hidden" lang="bn">দক্ষ প্রোগ্রামার হওয়া</h3><p class="en">Keep learning and developing programming skills.</p><p class="bn hidden" lang="bn">নিয়মিত শেখা এবং প্রোগ্রামিং দক্ষতা উন্নত করা।</p></div>
+        <div class="goal-card"><div class="goal-number">02</div><h3 class="en">Build a business future</h3><h3 class="bn hidden" lang="bn">ব্যবসায়িক ভবিষ্যৎ গড়া</h3><p class="en">Work toward becoming a successful businessman.</p><p class="bn hidden" lang="bn">একজন সফল ব্যবসায়ী হওয়ার লক্ষ্যে এগিয়ে যাওয়া।</p></div>
+        <div class="goal-card"><div class="goal-number">03</div><h3 class="en">Keep improving</h3><h3 class="bn hidden" lang="bn">নিজেকে উন্নত করা</h3><p class="en">Continue learning and building a strong foundation.</p><p class="bn hidden" lang="bn">নতুন কিছু শেখা এবং নিজের ভিত্তি আরও শক্ত করা।</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year">2026</span> Raduan Islam</span>
+      <span class="en">Personal profile · Made with care</span>
+      <span class="bn hidden" lang="bn">ব্যক্তিগত পরিচিতি · যত্নসহকারে তৈরি</span>
+    </div>
+  </footer>
+  <script>
+    const toggle = document.getElementById('langToggle');
+    let language = 'en';
+    function setLanguage(next) {
+      language = next;
+      document.querySelectorAll('.en').forEach(el => el.classList.toggle('hidden', next !== 'en'));
+      document.querySelectorAll('.bn').forEach(el => el.classList.toggle('hidden', next !== 'bn'));
+      document.documentElement.lang = next === 'bn' ? 'bn' : 'en';
+      toggle.textContent = next === 'en' ? 'বাংলা' : 'English';
+      toggle.setAttribute('aria-label', next === 'en' ? 'Switch to Bangla' : 'Switch to English');
+    }
+    toggle.addEventListener('click', () => setLanguage(language === 'en' ? 'bn' : 'en'));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
